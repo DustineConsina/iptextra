@@ -1,0 +1,138 @@
+"use client";
+
+import { useState } from 'react';
+
+export default function AuthForm() {
+  const [isRegister, setIsRegister] = useState(false);
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+    name: '',
+    confirmPassword: '',
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = () => {
+    alert('Form Submitted!');
+    console.log(formData);
+  };
+
+  return (
+    <div
+      className="flex justify-center items-center min-h-screen bg-cover bg-center"
+      style={{
+        backgroundImage: 'url(/bg.jpg)', // Replace with your image URL
+      }}
+    >
+      <div className="w-full max-w-md p-8 space-y-4 bg-white bg-opacity-75 shadow-md rounded-lg">
+        {/* Show login form if isRegister is false */}
+        {!isRegister ? (
+          <>
+            <h3 className="text-2xl font-semibold text-center">Login</h3>
+            <form>
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={handleChange}
+                className="w-full p-3 mb-4 border border-gray-300 rounded"
+                required
+              />
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={formData.password}
+                onChange={handleChange}
+                className="w-full p-3 mb-4 border border-gray-300 rounded"
+                required
+              />
+              <button
+                type="button"
+                onClick={handleSubmit}
+                className="w-full bg-blue-500 text-white py-2 rounded"
+              >
+                Login
+              </button>
+            </form>
+
+            <p className="mt-4 text-center">
+              Don't have an account?{' '}
+              <button
+                onClick={() => setIsRegister(true)}
+                className="text-blue-500 underline"
+              >
+                Register
+              </button>
+            </p>
+          </>
+        ) : (
+          <>
+            {/* Show register form if isRegister is true */}
+            <h3 className="text-2xl font-semibold text-center">Register</h3>
+            <form>
+              <input
+                type="text"
+                name="name"
+                placeholder="Name"
+                value={formData.name}
+                onChange={handleChange}
+                className="w-full p-3 mb-4 border border-gray-300 rounded"
+                required
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={handleChange}
+                className="w-full p-3 mb-4 border border-gray-300 rounded"
+                required
+              />
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={formData.password}
+                onChange={handleChange}
+                className="w-full p-3 mb-4 border border-gray-300 rounded"
+                required
+              />
+              <input
+                type="password"
+                name="confirmPassword"
+                placeholder="Confirm Password"
+                value={formData.confirmPassword}
+                onChange={handleChange}
+                className="w-full p-3 mb-4 border border-gray-300 rounded"
+                required
+              />
+              <button
+                type="button"
+                onClick={handleSubmit}
+                className="w-full bg-blue-500 text-white py-2 rounded"
+              >
+                Register
+              </button>
+            </form>
+
+            <p className="mt-4 text-center">
+              Already have an account?{' '}
+              <button
+                onClick={() => setIsRegister(false)}
+                className="text-blue-500 underline"
+              >
+                Login
+              </button>
+            </p>
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
