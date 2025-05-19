@@ -36,7 +36,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
-            Welcome to School Library
+            Welcome to Online Library
           </motion.h1>
 
           <motion.p
@@ -82,7 +82,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="bg-gray-900 text-gray-400 text-center py-6 mt-auto">
-        <p className="mb-0">© {new Date().getFullYear()} School's Library. All rights reserved.</p>
+        <p className="mb-0">© {new Date().getFullYear()} Library. All rights reserved.</p>
       </footer>
     </div>
   );

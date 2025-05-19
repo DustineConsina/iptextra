@@ -5,6 +5,7 @@ import { Toaster } from "react-hot-toast";
 import { AppProvider } from "./Context/AppProvider";
 import { Inter } from 'next/font/google';
 
+
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
