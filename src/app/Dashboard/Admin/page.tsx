@@ -68,11 +68,11 @@ export default function AdminDashboard() {
 
   const [isEditing, setIsEditing] = useState(false);
 
-  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
-  }
+  };
 
-  function handleSubmit(e: React.FormEvent) {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.title.trim() || !form.author.trim() || !form.category.trim()) {
       alert('Please fill in all fields.');
@@ -82,7 +82,7 @@ export default function AdminDashboard() {
     if (isEditing && form.id !== undefined) {
       setBooks((prev) =>
         prev.map((b) =>
-          b.id === form.id ? { id: form.id!, title: form.title, author: form.author, category: form.category, image: form.image || '' } : b
+          b.id === form.id ? { ...b, ...form } : b
         )
       );
       setIsEditing(false);
@@ -98,14 +98,14 @@ export default function AdminDashboard() {
     }
 
     setForm({ title: '', author: '', category: '', image: '' });
-  }
+  };
 
-  function handleEdit(book: Book) {
+  const handleEdit = (book: Book) => {
     setForm(book);
     setIsEditing(true);
-  }
+  };
 
-  function handleDelete(id: number) {
+  const handleDelete = (id: number) => {
     if (confirm('Are you sure you want to delete this book?')) {
       setBooks((prev) => prev.filter((b) => b.id !== id));
       if (isEditing && form.id === id) {
@@ -113,7 +113,7 @@ export default function AdminDashboard() {
         setIsEditing(false);
       }
     }
-  }
+  };
 
   return (
     <main className="flex min-h-[calc(100vh-64px)] w-screen pt-16 bg-gray-100">

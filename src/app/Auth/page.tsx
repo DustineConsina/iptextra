@@ -42,7 +42,7 @@ const Auth: React.FC = () => {
       try {
         await login(formData.email, formData.password);
       } catch (error) {
-        console.error('Login failed');
+        console.log('Login failed');
       }
     } else {
       try {
@@ -53,7 +53,7 @@ const Auth: React.FC = () => {
           formData.password_confirmation!
         );
       } catch (error) {
-        console.error(`Registration failed ${error}`);
+        console.log(`Registration failed ${error}`);
       }
     }
   };
