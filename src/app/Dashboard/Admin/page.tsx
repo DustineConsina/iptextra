@@ -192,9 +192,9 @@ export default function AdminDashboard() {
               </thead>
               <tbody>
                 {[
-                  { name: 'Jane Doe', email: 'jane@example.com', role: 'Librarian' },
-                  { name: 'John Smith', email: 'john@example.com', role: 'Member' },
-                  { name: 'Emily Davis', email: 'emily@example.com', role: 'Member' },
+                  { name: 'Jenny Rose', email: 'jennyrose@example.com', role: 'Librarian' },
+                  { name: 'Meryl Atanoso', email: 'merylatanoso@example.com', role: 'Member' },
+                  { name: 'Agatha Nicole', email: 'agathanicole@example.com', role: 'Member' },
                 ].map((user, idx) => (
                   <tr key={idx} className="border-t">
                     <td className="p-3">{user.name}</td>
